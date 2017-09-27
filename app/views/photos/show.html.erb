@@ -5,9 +5,11 @@
 </p>
 
 <p>
-  <strong><%= @photo.user.email %></strong>
-  <%= @photo.description %>
-  <%= @photo.location %>
+  <strong>User: <%= @photo.user.email %></strong>
+  <p>Description: <%= @photo.description %></p>
+  <p>Location <%= @photo.location %></p>
+  <p>Latitude: <%= @photo.latitude %></p>
+  <p>Longitude: <%= @photo.longitude %></p>
 </p>
 
 <!-- Like button -->

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170927045406) do
+ActiveRecord::Schema.define(version: 20170927053826) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "photo_id"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20170927045406) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "location"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_photos_on_user_id"
   end
 

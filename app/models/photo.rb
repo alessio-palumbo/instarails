@@ -5,6 +5,9 @@ class Photo < ApplicationRecord
   has_and_belongs_to_many :likers, class_name: 'User', join_table: :likes
   has_many :comments
 
+  geocoded_by :location
+  after_validation :geocode
+
   def liked_by?(user)
     likers.exists?(user.id)
   end
