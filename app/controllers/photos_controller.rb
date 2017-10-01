@@ -45,7 +45,7 @@ class PhotosController < ApplicationController
       if is_liking?
         # Toggle whether this photo is liked by the current user
         @photo.toggle_liked_by(current_user)
-        format.html { redirect_to @photo }
+        format.html { redirect_to @photo.user }
         format.json { render :show, status: :ok, location: @photo }
       elsif @photo.update(photo_params)
         format.html { redirect_to @photo, notice: 'Photo was successfully updated.' }

@@ -44,7 +44,12 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1.json
   def update
     respond_to do |format|
-      if @profile.update(profile_params)
+      if @profile.user != current_user && performing_follow?
+        # Toggle whether this photo is liked by the current user
+        @profile.user.toggle_followed_by(current_user)
+        format.html { redirect_to @profile.user }
+        format.json { render :show, status: :ok, location: @profile }
+      elsif @profile.update(profile_params) && @profile.user == current_user
         format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
         format.json { render :show, status: :ok, location: @profile }
       else
@@ -67,11 +72,26 @@ class ProfilesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
+      if params[:id]
+        # A particular person's profile page
+        # e.g. /users/5
+        @profile = Profile.find_by(user_id: params[:id])
+        # Alternative to above
+        # @profile = User.find(params[:id]).profile
+      else
+       # The signed in user's profile page
+       # /profile
       @profile = Profile.find_by(user: current_user)
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
       params.require(:profile).permit(:username, :name, :bio)
+    end
+
+    def performing_follow?
+      # Is there a 'toggle_follow' field in the form?
+      params.require(:user)[:toggle_follow].present?
     end
 end

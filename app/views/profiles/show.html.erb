@@ -20,8 +20,41 @@
     <p class="profile-count text-center">
       <%= pluralize(@profile.user.following.count, 'following', plural: 'following') %>
     </p>
-
   </div>
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> 
+  <br>
+  <h2 class="text-center">Gallery</h2>
+  <br>
+  <div class="container-fluid text-center">
+    <div class="row">
+    
+    <% @profile.user.photos.each do |photo| %>
+      <div class="col-md-4">
+        <%= image_tag photo.image.url, class: 'img-thumbnail img-size' %>
+        <br>
+        <%= form_with(model: photo, local:true) do |f| %>
+          <% liked = photo.liked_by?(current_user) %>
+          <%= f.hidden_field :liked, value: liked %>
+          <%= f.button liked ? 'Unlike' : 'Like', class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    <% end %>
+    </div>
+  </div>
 
+
+
+  <br>
+
+  <% if @profile.user == current_user %>
+    <%= link_to 'Edit', edit_profile_path(@profile), class: 'btn btn-danger' %> 
+  <% else %>
+    <%= form_with(model: @profile.user, method: :patch) do |f| %>
+      <%= f.hidden_field :toggle_follow, value: true %>
+      <%= f.button @profile.user.followed_by?(current_user) ? 'Unfollow' : 'Follow',
+        class: 'btn btn-primary btn-block' %>
+    <% end %>
+  <% end %>
+
+
+</div>
