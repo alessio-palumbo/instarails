@@ -31,7 +31,7 @@
     <% @profile.user.photos.each do |photo| %>
       <div class="col-md-4">
         <%= image_tag photo.image.url, class: 'img-thumbnail img-size' %>
-        <br>
+  
         <%= form_with(model: photo, local:true) do |f| %>
           <% liked = photo.liked_by?(current_user) %>
           <%= f.hidden_field :liked, value: liked %>
