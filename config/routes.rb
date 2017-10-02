@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   root 'landing#index'
   devise_for :users
   resources :users, only: [:show, :update], controller: :profiles
@@ -6,7 +7,8 @@ Rails.application.routes.draw do
   resources :photos do
     resources :comments 
   end
-
+  get '/feed' => 'feed#index'
+  
   resources :conversations do
     resources :messages
   end

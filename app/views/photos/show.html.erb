@@ -1,23 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <%= image_tag @photo.image.url, class: 'img-fluid' %>
-</p>
-
-<p>
-  <strong>User: <%= @photo.user.email %></strong>
-  <p>Description: <%= @photo.description %></p>
-  <p>Location <%= @photo.location %></p>
-  <p>Latitude: <%= @photo.latitude %></p>
-  <p>Longitude: <%= @photo.longitude %></p>
-</p>
-
-<!-- Like button -->
-<%= form_with(model: @photo, method: :patch) do |f| %>
-  <% liked = @photo.liked_by?(current_user) %>
-  <%= f.hidden_field :liked, value: liked %>
-  <%= f.button liked ? 'Unlike' : 'Like' %>
-<% end %>
+<%= render @photo  %>
+<%# same as "render 'photo', photo: @photo" %>
 
 <% if current_user == @photo.user %>
   <%= link_to 'Edit', edit_photo_path(@photo) %> ·
