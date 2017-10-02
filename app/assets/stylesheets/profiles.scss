@@ -148,6 +148,9 @@
 .btn-primary:hover {
   background: #1DA1F2;
 }
+.btn-larger {
+  width: 150px;
+}
 // footer
 footer {
   height: 100px;
@@ -156,5 +159,18 @@ footer {
   p {
     padding-top: 10px;
     font-size: 0.6em;
+  }
+}
+// form
+.field {
+  font-size: 1em;
+  font-weight: bold;
+  color: #686D74;
+  background: #e6ecf0;
+  text-align: left;
+  width: 500px;
+  margin: 0 auto;
+  label {
+    width: 100px;
   }
 }

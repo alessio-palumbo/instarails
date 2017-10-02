@@ -1,5 +1,8 @@
-<h1>Editing Profile</h1>
 
-<%= render 'form', profile: @profile %>
+<div class="container text-center">
+  <h2>Edit Profile</h2>
 
-<%= link_to 'Back', profile_path %>
+  <%= render 'form', profile: @profile %>
+
+  <%= link_to 'Back', profile_path, class: 'btn btn-edit' %>
+</div>
