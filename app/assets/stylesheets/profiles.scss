@@ -1,13 +1,160 @@
-.profile-count {
-  font-size: 80%;
-}
-.profile-count::first-line {
+// nav
+.navbar {
+  padding: 3px;
+  height: 40px;
+  ul {
+    padding-left: 20px;
+    height: 100%;
+    margin: 0;
+  }
+  li {
+  display: inline-block;
+  height: 100%;
+  width: 120px;
+  text-align: center;
+  padding-top: 5px;
+  font-size: 0.7em;
   font-weight: bold;
-  font-size: 150%;
+  color: #686D74;
+  }
 }
-.img-size {
-  width: 300px;
+// header
+.header {
+  background: #00aced;
+  height: 150px;
+  border-top: 2px solid #1DA1F2;
+  padding-left: 30px;
+  padding-top: 10px;
+  .avatar {
+    width: 200px;
+    border-radius: 50%;
+    border: 5px solid white;
+  }
 }
-.img-thumbnail {
-  margin-bottom: 20px;
+
+// container
+.container-fluid {
+  padding: 0;
+}
+// banner
+.banner {
+  height: 60px;
+  // border-bottom: 1px solid #686D74 2px;
+  
+  // align-items: baseline;
+  .profile-count {
+    font-size: 70%;
+    color: #686D74;
+    align-items: center;
+    padding-top: 5px;
+  }
+  .profile-count::first-line {
+    font-weight: bold;
+    font-size: 120%;
+  }
+  .button {
+    text-align: right;
+    padding-right: 30px;
+    height: 100%;
+    padding-top: 12px;
+  }
+}
+// main profile and data
+.main {
+  box-shadow: 0 2px 5px 2px gray;
+  padding: 20px 30px;
+  background: #e6ecf0;
+  .details {
+  padding-top: 20px;
+  font-size: 0.7em;
+  line-height: 0.8em;
+    .username {
+      font-size: 1.6em;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .name, .joined {
+      color: #686D74;
+    }
+    .bio {
+      margin-top: 10px;
+      margin-bottom: 25px;
+    }
+    a {
+      color: #4AB3F4;
+    }
+  } 
+  .main-nav {
+    background: white;
+    margin-bottom: 3px;
+    padding: 5px 30px;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-align: left;
+    a {
+      color: #1DA1F2;
+      text-decoration: none;
+      margin-right: 20px;
+    }
+    a:focus {
+      color: black;
+    }
+  } 
+}
+
+// gallery
+.gallery {
+  background: white;
+  padding: 10px 30px;
+  h2 {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .imgs {
+    width: 300px;
+    margin-bottom: 20px;
+  }
+}
+
+// buttons
+.btn {
+  font-weight: bold;
+  border-radius: 20px;
+  width: 110px;
+  height: 32px;
+  font-size: 0.7em;
+}
+.btn-edit {
+  display: inline-block;
+  color: #686D74;
+  background: white;
+  border: 1px solid #686D74;
+  text-align: center;
+  padding-top: 6px;
+}
+.btn-edit:hover {
+  background: #e6ecf0;
+  color: #686D74;
+}
+.btn-follow {
+  color: #4AB3F4;
+  border: #4AB3F4;
+}
+.btn-primary {
+  background: #4AB3F4;
+  border: none;
+  padding-top: 8px;
+}
+.btn-primary:hover {
+  background: #1DA1F2;
+}
+// footer
+footer {
+  height: 100px;
+  background: #0084b4;
+  padding: 20px;
+  p {
+    padding-top: 10px;
+    font-size: 0.6em;
+  }
 }

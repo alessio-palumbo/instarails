@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170928023606) do
+ActiveRecord::Schema.define(version: 20171001084731) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "photo_id"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20170928023606) do
     t.text "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "avatar_data"
     t.index ["user_id"], name: "index_profiles_on_user_id"
     t.index ["username"], name: "index_profiles_on_username", unique: true
   end
