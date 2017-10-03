@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
   # GET /profiles
   # GET /profiles.json
@@ -20,7 +21,9 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
-    @profile = Profile.find_or_initialize_by(user: current_user)
+    # @profile = Profile.find_or_initialize_by(user: current_user)
+    # Have blank profile if the user hasn't
+    @profile = Profile.new(user: current_user) if @profile.nil?
   end
 
   # POST /profiles
@@ -75,13 +78,13 @@ class ProfilesController < ApplicationController
       if params[:id]
         # A particular person's profile page
         # e.g. /users/5
-        @profile = Profile.find_by(user_id: params[:id])
+        @profile = Profile.find_by!(user_id: params[:id])
         # Alternative to above
         # @profile = User.find(params[:id]).profile
       else
-       # The signed in user's profile page
-       # /profile
-      @profile = Profile.find_by(user: current_user)
+        # The signed in user's profile page
+        # /profile
+        @profile = Profile.find_by(user: current_user)
       end
     end
 
@@ -92,6 +95,7 @@ class ProfilesController < ApplicationController
 
     def performing_follow?
       # Is there a 'toggle_follow' field in the form?
-      params.require(:user)[:toggle_follow].present?
+      # params.require(:user)[:toggle_follow].present?
+      params.dig(:user, toggle_follow).present?
     end
 end

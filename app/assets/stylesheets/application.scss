@@ -6,6 +6,46 @@
 
 @import "./photos";
 
+@import "./feed";
+
 html {
   font-family: Arial, Helvetica, sans-serif;
+}
+// buttons
+.btn {
+  font-weight: bold;
+  border-radius: 20px;
+  width: 110px;
+  height: 32px;
+  font-size: 0.7em;
+}
+.btn-edit {
+  display: inline-block;
+  color: #686D74;
+  background: white;
+  border: 1px solid #686D74;
+  text-align: center;
+  padding-top: 6px;
+}
+.btn-edit:hover {
+  background: #e6ecf0;
+  color: #686D74;
+}
+.btn-follow {
+  color: #4AB3F4;
+  border: 1px solid #4AB3F4;
+}
+.btn-primary {
+  background: #4AB3F4;
+  border: none;
+  padding-top: 8px;
+}
+.btn-primary:hover {
+  background: #1DA1F2;
+}
+.btn-larger {
+  width: 150px;
+}
+.btn-smaller {
+  width: 80px;
 }

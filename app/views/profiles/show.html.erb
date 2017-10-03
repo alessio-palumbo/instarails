@@ -1,12 +1,20 @@
 <%# navigation %>
-<nav class="top-nav">
-  <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Moments</a></li>
-    <li><a href="#">Notifications</a></li>
-    <li><a href="#">Messages</a></li>
-  </ul> 
-</nav>
+<div class="top-bar">
+  <nav class="top-nav">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Moments</a></li>
+      <li><a href="#">Notifications</a></li>
+      <li><a href="#">Messages</a></li>
+    </ul> 
+  </nav>
+  <span class="icon"></span>
+  <div class="right-nav">
+    <input type="search" placeholder="Search Twitter">
+    <%= image_tag @profile.avatar.url, class: "avatar-icon"  %>
+    <%= link_to 'Tweet', @comments, class: 'btn btn-primary btn-smaller' %> 
+  </div>
+</div>
 <%# header and avatar %>
 <header class="header">
 <p id="notice"><%= notice %></p>
