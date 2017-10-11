@@ -43,6 +43,9 @@ gem 'geocoder'
 
 gem 'bootstrap', '~> 4.0.0.beta'
 
+gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
+gem 'sweet-alert2-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

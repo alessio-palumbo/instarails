@@ -1,22 +1,22 @@
-<nav class="nav sticky-top justify-content-center pt-2 pb-2 bg-light">
-  <%= link_to 'New Photo', new_photo_path, class: 'btn btn-primary' %>
+<nav class="nav justify-content-center pt-2 pb-2 bg-light">
+  <%= link_to 'New Photo', new_photo_path, class: 'btn btn-primary text-center' %>
 </nav>
-
-<p id="notice"><%= notice %></p>
-
-<section>
-  <% @photos.each do |photo| %>
-    <article>
-      <%= link_to photo do %>
-        <figure>
-          <%= image_tag photo.image.url, class: 'img-fluid', alt: photo.description %>
-        </figure>
+  <section class="container">
+    <div class="row">
+      <% @photos.each do |photo| %>
+          <article class="col-md-4">
+            <%= link_to photo do %>
+              <figure>
+                <%= image_tag photo.image.url, class: 'img-fluid imgs', alt: photo.description %>
+              </figure>
+            <% end %>
+            <p>
+              <strong><%= photo.user.email %></strong>
+              <%= photo.description %>
+              <%= photo.location %>
+            </p>
+          </article>
       <% end %>
-      <p>
-        <strong><%= photo.user.email %></strong>
-        <%= photo.description %>
-        <%= photo.location %>
-      </p>
-    </article>
-  <% end %>
-</section>
+    </div>
+  </section>
+

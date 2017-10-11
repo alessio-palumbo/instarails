@@ -95,7 +95,7 @@ class ProfilesController < ApplicationController
 
     def performing_follow?
       # Is there a 'toggle_follow' field in the form?
-      # params.require(:user)[:toggle_follow].present?
-      params.dig(:user, toggle_follow).present?
+      params.require(:user)[:toggle_follow].present?
+      # params.dig(:user, toggle_follow).present?
     end
 end

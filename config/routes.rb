@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :photos do
     resources :comments 
   end
+  get '/followers' => 'followers#index'
+  get '/following' => 'following#index'
   get '/feed' => 'feed#index'
   
   resources :conversations do

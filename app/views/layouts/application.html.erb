@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>Instarails</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,6 +11,26 @@
   </head>
 
   <body>
+    <%# navigation %>
+    <div class="top-bar">
+      <nav class="top-nav">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Moments</a></li>
+          <li><a href="#">Notifications</a></li>
+          <li><a href="#">Messages</a></li>
+        </ul> 
+      </nav>
+      <span class="icon"></span>
+      <div class="right-nav">
+        <input type="search" placeholder="Search Twitter">
+        <% if @profile %>
+          <%= image_tag @profile.avatar.url, class: "avatar-icon"  %>
+        <% end %>
+        <a href="#" class="btn btn-primary btn-smaller" >Tweet</a>
+      </div>
+    </div>
+    <%# Yield %>
     <%= yield %>
   </body>
 </html>

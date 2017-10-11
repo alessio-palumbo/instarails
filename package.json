@@ -1,5 +1,7 @@
 {
   "name": "instarails",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "sweetalert2": "^6.10.1"
+  }
 }

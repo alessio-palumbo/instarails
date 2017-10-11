@@ -1,23 +1,6 @@
-<%# navigation %>
-<div class="top-bar">
-  <nav class="top-nav">
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Moments</a></li>
-      <li><a href="#">Notifications</a></li>
-      <li><a href="#">Messages</a></li>
-    </ul> 
-  </nav>
-  <span class="icon"></span>
-  <div class="right-nav">
-    <input type="search" placeholder="Search Twitter">
-    <%= image_tag @profile.avatar.url, class: "avatar-icon"  %>
-    <%= link_to 'Tweet', @comments, class: 'btn btn-primary btn-smaller' %> 
-  </div>
-</div>
+
 <%# header and avatar %>
 <header class="header">
-<p id="notice"><%= notice %></p>
   <%= image_tag @profile.avatar.url, class: "avatar"  %>
 </header>
 
@@ -27,15 +10,15 @@
     <div class="col-md-3"></div>
     <div class="col-md-6">
       <div class="d-flex justify-content-around">
-        <p class="profile-count text-center">
+        <a href="/photos" class="profile-count text-center">
           <%= pluralize(@profile.user.photos.count, 'photo') %>
-        </p>
-        <p class="profile-count text-center">
+        </a>
+        <a href="#" class="profile-count text-center">
           <%= pluralize(@profile.user.followers.count, 'follower') %>
-        </p>
-        <p class="profile-count text-center">
+        </a>
+        <a href="#" class="profile-count text-center">
           <%= pluralize(@profile.user.following.count, 'following', plural: 'following') %>
-        </p>
+        </a>
       </div>
     </div>
     <div class="col-md-3 button">
@@ -63,6 +46,7 @@
         <p class="joined">Joined April 2012</p>
       </div>
       <%# gallery %>
+      
       <div class="col-md-8">
         <nav class="main-nav">
           <a href="#">Gallery</a>
@@ -74,13 +58,17 @@
           <div class="row pics">  
             <% @profile.user.photos.each do |photo| %>
               <div class="col-md-4">
-                <%= image_tag photo.image.url, class: 'img-thumbnail imgs' %>
-                <%# like button %>
-                <%= form_with(model: photo, local:true) do |f| %>
-                  <% liked = photo.liked_by?(current_user) %>
-                  <%= f.hidden_field :liked, value: liked %>
-                  <%= f.button liked ? 'Unlike' : 'Like', class: 'btn btn-primary' %>
+                <figure class="figure">
+                  <%= image_tag photo.image.url, class: 'img-thumbnail imgs' %>
+                  <figcaption>
+                  <%# like button %>
+                  <%= form_with(model: photo, local:true) do |f| %>
+                    <% liked = photo.liked_by?(current_user) %>
+                    <%= f.hidden_field :liked, value: liked %>
+                    <%= f.button liked ? 'Unlike' : 'Like', class: 'btn btn-primary' %>
                 <% end %>
+                </figcaption>
+                </figure>
               </div>
             <% end %>
           </div>
@@ -93,3 +81,5 @@
     <p>@copy; instarails 2017<p>
   </footer>
 </div>
+
+
