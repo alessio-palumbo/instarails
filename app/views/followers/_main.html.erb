@@ -1,0 +1,32 @@
+<nav class="main-nav hidden">
+  <a href="#">Tweets</a>
+  <a href="#">Tweets &amp; Replies</a>
+  <a href="#">Media</a>
+</nav>
+<div class="following">
+  <% if current_user.followers.count > 0 %> 
+    <div class="row pics"> 
+      <% current_user.followers.each do |follower| %>
+        <div class="col-sm-6 col-md-4">
+          <figure class="fig">
+            <header class="fig-header">
+              <%= image_tag follower.profile.avatar.url, class: "fig-avatar"  %>
+            </header>
+            <%= form_with(model: follower, method: :patch) do |f| %>
+              <%= f.hidden_field :toggle_follow, value: true %>
+              <%= f.button follower.followed_by?(current_user) ? 'Unfollow' : 'Follow',
+                class: 'btn btn-primary fig-btn' %>
+            <% end %>
+            <div class="fig-details">
+              <p class="fig-username"><%= follower.profile.username %></p>
+              <p class="fig-name"><%= follower.profile.name %></p>
+              <p class="fig-bio"><%= follower.profile.bio %></p>
+            </div>
+          </figure>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <h2 class="text-center">You are not followed by anyone atm!</h2>
+  <% end %>
+</div>

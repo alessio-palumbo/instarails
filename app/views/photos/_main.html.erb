@@ -1,0 +1,30 @@
+<nav class="main-nav">
+  <a href="#">Gallery</a>
+  <a href="#">Tweets</a>
+  <a href="#">Tweets &amp; Replies</a>
+  <a href="#">Media</a>
+</nav>
+<div class="container-fluid text-center gallery">
+  <div class="row pics">  
+    <% @profile.user.photos.each do |photo| %>
+      <div class="col-md-4">
+        <figure class="figure">
+          <%= image_tag photo.image.url, class: 'img-thumbnail img-fluid' %>
+          <%# like button %>
+        </figure>
+        <% if @profile.user != current_user %>
+          <div>
+            <%= form_with(model: photo, local:true) do |f| %>
+              <% liked = photo.liked_by?(current_user) %>
+              <%= f.hidden_field :liked, value: liked %>
+              <%= f.button liked ? 'Unlike' : 'Like', class: 'btn btn-primary' %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <% if @profile.user == current_user %>
+      <%= link_to 'Upload photo', new_photo_path, class: 'btn btn-primary upload' %>
+  <% end %>
+</div>

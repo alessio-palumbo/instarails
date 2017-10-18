@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <% @photo_feed.each do |photo| %>
+    
       <div class="col-md-4">
         <p>
           <%= image_tag photo.image.url, class: 'img-fluid' %>
@@ -23,6 +23,6 @@
         <% end %>
         <br>
       </div>
-    <% end %>
+    
   </div>
 </div>

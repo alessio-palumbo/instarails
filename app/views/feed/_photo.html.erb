@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <% @photos.each do |photo| %>
+      <div class="col-md-4">
+        <p>
+          <%= image_tag photo.image.url, class: 'img-fluid' %>
+        </p>
+
+        <p>
+          <strong>User: <%= photo.user.email %></strong>
+          <p>Description: <%= photo.description %></p>
+          <p class="text-small">Location <%= photo.location %></p>
+          <p class="text-small">Latitude: <%= photo.latitude %></p>
+          <p class="text-small">Longitude: <%= photo.longitude %></p>
+        </p>
+
+        <%# <% if user_signed_in? %>
+        <!-- Like button -->
+        <%= form_with(model: photo, method: :patch) do |f| %>
+          <% liked = photo.liked_by?(current_user) %>
+          <%= f.hidden_field :liked, value: liked %>
+          <%= f.button liked ? 'Unlike' : 'Like', class: "btn btn-primary" %>
+        <% end %>
+        <br>
+      </div>
+    <% end %>
+  </div>
+</div>

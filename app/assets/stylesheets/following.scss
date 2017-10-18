@@ -1,3 +1,48 @@
-// Place all the styles related to the Following controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// header
+.hidden {
+  visibility: hidden;
+}
+.fig {
+  height: 280px;
+  overflow: hidden;
+  text-align: left;
+  background: white;
+  .fig-header {
+    background: #1DA1F2;
+    height: 80px;
+    border-top: 1px solid #0084b4;
+    margin-bottom: 40px;
+  }
+  .fig-avatar {
+    width: 80px;
+    border-radius: 50%;
+    border: 3px solid white;
+    margin-top: 40px;
+  }
+  .fig-btn {
+    width: 90px;
+    height: 26px;
+    font-size: 12px;
+    padding-top: 6px;
+    position: relative;
+    bottom: 30px;
+    left: 130px;
+  }
+  .fig-btn:hover {
+    background: #e0245e;
+  }
+  .fig-details {
+    font-size: 0.8em;
+    padding-left: 15px;
+  }
+  .fig-username {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 7px;
+  }
+  .fig-name {
+    color: #686D74;
+  }
+  .fig-bio {
+  }
+}

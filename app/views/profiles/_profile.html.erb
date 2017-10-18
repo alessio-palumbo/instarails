@@ -1,0 +1,60 @@
+<%# header and avatar %>
+<header class="header">
+  <%= image_tag @profile.avatar.url, class: "avatar"  %>
+</header>
+
+<div class="container-fluid">
+<%# banner %>
+  <div class="row banner">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="d-flex justify-content-around">
+        <a href="/photos" class="profile-count text-center">
+          <%= pluralize(@profile.user.photos.count, 'photo') %>
+        </a>
+        <a href="/followers" class="profile-count text-center">
+          <%= pluralize(@profile.user.followers.count, 'follower') %>
+        </a>
+        <a href="/following" class="profile-count text-center">
+          <%= pluralize(@profile.user.following.count, 'following', plural: 'following') %>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-3 button">
+      <%# Edit or follow button %>
+      <% if @profile.user == current_user %>
+        <%= link_to 'Edit profile', edit_profile_path(@profile), class: 'btn btn-edit' %> 
+      <% else %>
+        <%= form_with(model: @profile.user, method: :patch) do |f| %>
+          <%= f.hidden_field :toggle_follow, value: true %>
+          <%= f.button @profile.user.followed_by?(current_user) ? 'Unfollow' : 'Follow',
+            class: 'btn btn-follow' %>
+        <% end %>
+      <% end %>
+    </div>
+  </div> <%# end banner %>
+<%# profile and data %>
+  <div class="main">
+    <div class="row">
+      <div class="col-md-2 details">
+        <p class="username"><%= @profile.username %></p>
+        <p class="name"><%= @profile.name %></p>
+        <p class="bio"><%= @profile.bio %></p>
+        <p><a href="#">Melbourne, Victoria</a></p>
+        <p><a href="#">alessio@netlify.com<a></p>
+        <p class="joined">Joined April 2012</p>
+      </div>
+      <%# gallery %>
+      
+      <div class="col-md-8">
+        <%= render 'main' %>
+      </div>
+     
+    </div> <%# end row %>
+  </div> <%# end main %>
+
+  <footer>
+    <p>@copy; instarails 2017<p>
+  </footer>
+</div>
+

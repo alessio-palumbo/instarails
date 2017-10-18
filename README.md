@@ -1,24 +1,17 @@
-# README
+### MODELS
+- User (to create account with email and password)
+- Profile (adding personal details and managing photos and followers)
+- Photo 
+- Comment (to comment on a photo)
+- Conversation (between 2 users)
+- Message (from one user to another in a conversation)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### UPLOADER
+- Shrine (to allow user to upload photos and avatars)
 
-Things you may want to cover:
+### FUNCTIONALITIES
+- Follow other users
+- Upload photos
+- Like photos
+- Chat with users
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
