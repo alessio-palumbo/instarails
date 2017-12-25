@@ -1,20 +1,25 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col">
-      <h1 class="mt-3">Instarails</h1>
-      <img src="<%= asset_url('3q3a0859.jpg') %>" class="img-fluid">
-    </div>
-    <div class="col">
-      <h2 class="mt-3">The number two photo social app</h2>
-      <nav>
-        <% if user_signed_in? %>
-          <%= link_to 'Edit account', edit_user_registration_path, class: 'btn btn-primary' %>
-          <%= link_to 'Sign out', destroy_user_session_path, class: 'btn btn-light', method: :delete %>
-        <% else %>
-          <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-primary' %>
-          <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-primary' %>
-        <% end %>
-      </nav>
-    </div>
+<div class="container-fluid text-center">
+  <div class='div-with-image'>
+    <nav class='registration'>
+      <% if user_signed_in? %>
+        <%= link_to 'Sign out', destroy_user_session_path, class: 'btn btn-light btn-light', method: :delete %>
+      <% else %>
+        <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-secondary' %>
+        <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-secondary' %>
+      <% end %>
+    </nav>
+    <h1 class='title'>Instarails</h1>
+    <h4 class="mt-3">The number two photo social app</h4>
   </div>
+  <ul class='navigation d-flex justify-content-around'>
+    <li><a href='#'><i class="fa fa-search"></i></a></li>
+    <li><a href='#'>Featured</a></li>
+    <li><a href='#'>News</a></li>
+    <li><a href='#'>Entertainment</a></li>
+    <li><a href='#'>Gaming</a></li>
+    <li><a href='#'>Sports</a></li>
+    <li><a href='#'>Fun</a></li>
+    <li><a href='#'>More</a></li>
+  </ul>
+
 </div>

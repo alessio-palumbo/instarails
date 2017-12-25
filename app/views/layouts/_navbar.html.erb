@@ -1,0 +1,20 @@
+<% if current_user %>
+  <div class="top-bar">
+    <nav class="top-nav">
+      <ul>
+        <li><a href="/users/<% "#{current_user.id}" %>"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="#"><i class="fa fa-bolt"></i> Moments</a></li>
+        <li><a href="#"><i class="fa fa-bell-o"></i> Notifications</a></li>
+        <li><a href="#"><i class="fa fa-envelope-o"></i> Messages</a></li>
+      </ul> 
+    </nav>
+    <span class="icon"></span>
+    <div class="right-nav">
+      <input type="search" placeholder="Search Instarails">
+      <% if @profile && @profile.avatar %>
+        <%= image_tag @profile.avatar.url, class: "avatar-icon"  %>
+      <% end %>
+      <a href="#" class="btn btn-primary btn-smaller" >Tweet</a>
+    </div>
+  </div>
+<% end %>

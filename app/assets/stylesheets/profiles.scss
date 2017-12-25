@@ -246,15 +246,27 @@ footer {
   }
 }
 // form
-.field {
-  font-size: 1em;
-  font-weight: bold;
-  color: #686D74;
-  background: #e6ecf0;
-  text-align: left;
-  width: 500px;
-  margin: 0 auto;
-  label {
-    width: 100px;
+.file-box {
+  padding-left: 8px;
+  border-radius: 20px;
+  border: 2px solid #686D74;
+  width: 200px;
+  height: 36px;
+  margin: 5px auto;
+  text-align: center;
+  position: relative;
+  .file-field {
+    width: 200px;
+    left: 0;
+    top: 0;
+    color: transparent;
+    position: absolute;
+    padding-left: 300px;
+    outline: none;
   }
 }
+
+.file-box:before {
+  content: 'Avatar';
+}
+
