@@ -9,7 +9,7 @@
     <% @profile.user.photos.each do |photo| %>
       <div class="col-md-4">
         <figure class="figure">
-          <%= image_tag photo.image.url, class: 'img-thumbnail img-fluid' %>
+            <%= image_tag photo.image.url, class: 'img-thumbnail img-fluid' %>
           <%# like button %>
         </figure>
         <% if @profile.user != current_user %>

@@ -1,10 +1,13 @@
-<p id="notice"><%= notice %></p>
+<div class='container text-center'>
+  <br />
+  <p id="notice"><%= notice %></p>
 
-<%= render @photo  %>
-<%# same as "render 'photo', photo: @photo" %>
+  <%= render @photo  %>
+  <%# same as "render 'photo', photo: @photo" %>
 
-<% if current_user == @photo.user %>
-  <%= link_to 'Edit', edit_photo_path(@photo) %> ·
-  <%= link_to 'Destroy', @photo, method: :delete, data: { confirm: 'Are you sure?' } %> ·
-<% end %>
-<%= link_to 'Back', photos_path %>
+  <% if current_user == @photo.user %>
+    <%= link_to 'Edit', edit_photo_path(@photo) %> ·
+    <%= link_to 'Delete', @photo, method: :delete, data: { confirm: 'Are you sure?' } %> ·
+  <% end %>
+  <%= link_to 'Back to profile', photos_path %>
+</div>
