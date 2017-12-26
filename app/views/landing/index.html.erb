@@ -1,5 +1,5 @@
 <div class="container-fluid text-center">
-  <div class='div-with-image' style="backgound: url('<%= image_path 'https://i1.wp.com/www.cordcuttersnews.com/wp-content/uploads/2016/07/twitter-logo-small-fade-1920.png?fit=1920%2C1080' %>')">
+  <div class='div-with-image' style="background: url('<%= image_path 'https://i1.wp.com/www.cordcuttersnews.com/wp-content/uploads/2016/07/twitter-logo-small-fade-1920.png?fit=1920%2C1080' %>')">
     <nav class='registration'>
       <% if user_signed_in? %>
         <%= link_to 'Sign out', destroy_user_session_path, class: 'btn btn-light btn-light', method: :delete %>
