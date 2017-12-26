@@ -5,12 +5,11 @@
   margin: 5px auto;
   border-radius: 8px;
   padding-left: 5px;
-  border: 2px solid #686D74;
+  border: 2px solid $secondary;
   outline: none;
 }
-
-.input-field:focus {
-  border: 2px solid #1DA1F2; 
+.input-field:focus, .input-field:hover, .file-box:active, .file-box:hover{
+  border: 2px solid $primary-hover; 
 }
 
 .remember {

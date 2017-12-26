@@ -1,9 +1,130 @@
-header {
-  background: #00aced;
-  height: 100px;
-  padding: 10px;
-  h1 {
-    color: white;
-    font-weight: bold;
+.feed-content {
+  background: #e6ecf0;
+  height: 100%;
+  padding: 10px 170px;
+
+  .feed-profile {
+    font-size: 0.7em;
+    margin-bottom: 12px;
+    .feed-profile-header {
+      background: $primary-hover;
+      height: 100px;
+    }
+    .feed-profile-body {
+      padding: 10px;
+      background: white;
+      position: relative;
+      .avatar-icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        border: 3px solid white;
+        position: absolute;
+        bottom: 65px;
+      }
+      p {
+        margin-left: 80px;
+      }
+      .name {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 7px;
+      }
+      .username {
+        color: $secondary;
+      }
+      .feed-count {
+        text-align: center;
+        font-size: 0.9em;
+        font-weight: bold;
+        color: $secondary;
+        align-items: center;
+        wrap: wrap;
+        .number{
+          color: $primary;
+          font-size: 1.7em;
+          display: block;
+          text-align: left;
+          line-height: 18px;
+        }
+      }
+    }
+  }
+  .feed-follow {
+    padding: 10px;
+    background: white;
+    .row-feed {
+      border-bottom: 1px solid #e6ecf0;
+      padding-bottom: 7px;
+      margin: 5px 0 10px 0;
+    }
+    p {
+      font-size: 0.7em;
+      margin: 3px 0;
+    }
+    .avatar-icon {
+      width: 50px;
+      border-radius: 50%;
+    }
+    .name {
+      font-weight: bold;
+    }
+    .username {
+      color: $secondary;
+    }
+    .btn-feed {
+      height: 26px;
+      width: 90px;
+      border: 1px solid $primary-hover;
+      color: $primary;
+      padding-top: 3px;
+    }
+  }
+  .col-feed {
+    .tweet-feed {
+      height: 70px;
+      background: #E8F5FD;
+      padding: 12px 12px 0 28px;
+      .feed-avatar-icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      }
+      textarea {
+        height: 40px;
+        border-radius: 5px;
+        margin-left: 5px;
+        border: 1px solid $primary;
+        width: 100%;
+        overflow: hidden;
+        font-size: 0.7em;
+        padding: 2px 8px;
+      }
+      textarea:focus {
+        outline: none;
+      }
+    }
+    .feed-entry {
+      font-size: 0.7em;
+      background: white;
+      padding-top: 12px;
+      .avatar-icon {
+        width: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+      .name {
+        font-weight: bold;
+      }
+      .username {
+        color: $secondary;
+      }
+      .feed-image {
+        width: 100%;
+      }
+    }
+    .feed-entry:hover {
+      background: #f5f8fa;
+    }
   }
 }

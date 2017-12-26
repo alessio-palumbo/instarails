@@ -2,4 +2,5 @@
 
 <%= render 'form', profile: @profile %>
 
-<%= link_to 'Back', profiles_path %>
+<%= button_to "Cancel account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+

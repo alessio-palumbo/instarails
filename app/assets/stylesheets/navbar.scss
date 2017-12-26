@@ -1,0 +1,65 @@
+.user-menu {
+  border: 0;
+  background: none;
+}
+.user-menu:focus {
+  pointer-events: none;
+  outline: none;  
+}
+
+.user-menu:focus ~ .user-menu-dropdown {
+  visibility: visible;
+  opacity: 1;
+}
+.user-menu-dropdown {
+  list-style: none;
+  position: absolute;
+  background: white;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+  z-index: 50;
+  padding: 15px 0;
+  border-radius: 5px;
+  top: 45px;
+  width: 190px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility .3s;
+  p {
+    padding-left: 15px;
+  }
+  .name {
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .username {
+    font-size: 0.7em;
+    color: $secondary;
+  }
+  li {
+    font-size: 0.7em;
+    height: 35px;
+    a {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      padding: 6px 15px;
+    }
+    a:hover {
+      background: $primary-hover;
+      color: white;
+    }
+    i {
+      width: 25px;
+    }
+    i.fa-moon-o {
+      margin-left: 50px;
+    }
+  }
+  hr {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+}
+

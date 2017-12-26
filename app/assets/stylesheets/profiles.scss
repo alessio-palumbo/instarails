@@ -25,14 +25,14 @@
       display: inline-block;
       vertical-align: middle;
       text-decoration: none;
-      color: #686D74;
+      color: $secondary;
       width: 100%;
       height: 100%;
       transition: border .3s;
     }
     a:hover {
-      color: #1DA1F2;
-      border-bottom: 2px solid #1DA1F2;
+      color: $primary-hover;
+      border-bottom: 2px solid $primary-hover;
     }
   }
   .icon {
@@ -69,7 +69,7 @@
       background-position: 190px, 2px;
     }
     input:focus {
-      border: 2px solid #1DA1F2;
+      border: 2px solid $primary-hover;
     }
     .avatar-icon {
       width: 30px;
@@ -79,7 +79,7 @@
 }
 // header
 .header {
-  background: #1DA1F2;
+  background: $primary-hover;
   height: 120px;
   border-top: 1px solid #0084b4;;
   padding-left: 40px;
@@ -100,12 +100,12 @@
 .banner {
   height: 60px;
   padding-top: 12px;
-  // border-bottom: 1px solid #686D74 2px;
+  // border-bottom: 1px solid $secondary 2px;
   
   // align-items: baseline;
   .profile-count {
     font-size: 70%;
-    color: #686D74;
+    color: $secondary;
     align-items: center;
   }
   .profile-count::first-line {
@@ -121,8 +121,8 @@
       display: inline-block;
     }
     a:hover {
-      color: #1DA1F2;
-      border-bottom: 2px solid #1DA1F2;
+      color: $primary-hover;
+      border-bottom: 2px solid $primary-hover;
     }
   }
     .button {
@@ -140,20 +140,20 @@
   padding-top: 20px;
   font-size: 0.7em;
   line-height: 0.8em;
-    .username {
+    .name {
       font-size: 1.6em;
       font-weight: bold;
       margin-bottom: 10px;
     }
-    .name, .joined {
-      color: #686D74;
+    .username, .joined {
+      color: $secondary;
     }
     .bio {
       margin-top: 10px;
       margin-bottom: 25px;
     }
     a {
-      color: #4AB3F4;
+      color: $primary;
     }
   } 
   .main-nav {
@@ -164,7 +164,7 @@
     font-weight: bold;
     text-align: left;
     a {
-      color: #1DA1F2;
+      color: $primary-hover;
       text-decoration: none;
       margin-right: 20px;
     }
@@ -210,46 +210,37 @@
 }
 .btn-edit {
   display: inline-block;
-  color: #686D74;
+  color: $secondary;
   background: white;
-  border: 1px solid #686D74;
+  border: 1px solid $secondary;
   text-align: center;
   padding-top: 6px;
 }
 .btn-edit:hover {
   background: #e6ecf0;
-  color: #686D74;
+  color: $secondary;
 }
 .btn-follow {
   color: #4AB3F4;
   border: #4AB3F4;
 }
 .btn-primary {
-  background: #4AB3F4;
+  background: $primary;
   border: none;
   padding-top: 8px;
 }
 .btn-primary:hover {
-  background: #1DA1F2;
+  background: $primary-hover;
 }
 .btn-larger {
   width: 150px;
 }
-// footer
-footer {
-  height: 100px;
-  background: #0084b4;
-  padding: 20px;
-  p {
-    padding-top: 10px;
-    font-size: 0.6em;
-  }
-}
+
 // form
 .file-box {
   padding-left: 8px;
   border-radius: 20px;
-  border: 2px solid #686D74;
+  border: 2px solid $secondary;
   width: 200px;
   height: 36px;
   margin: 5px auto;

@@ -1,6 +1,9 @@
-<h1>Editing Photo</h1>
+<div class="container text-center">
 
-<%= render 'form', photo: @photo %>
+  <h5 class='m-4'>Edit Photo</h5>
 
-<%= link_to 'Show', @photo %> |
-<%= link_to 'Back', photos_path %>
+  <%= render 'form', photo: @photo %>
+
+  <%= link_to 'Back', photos_path, class: 'btn btn-edit mt-4' %>
+</div>
+

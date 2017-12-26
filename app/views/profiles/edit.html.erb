@@ -4,5 +4,9 @@
 
   <%= render 'form', profile: @profile %>
 
+  <% if @profile.name %>
   <%= link_to 'Back', profile_path, class: 'btn btn-edit mt-4' %>
+  <% end %>
+  <%= link_to "Delete account", registration_path(current_user), data: { confirm: "Are you sure?" }, class: 'btn btn-danger mt-4',method: :delete %></p>
+
 </div>

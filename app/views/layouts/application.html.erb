@@ -6,14 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
 
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%# navigation %>
-    <%= render 'layouts/navbar' %>
-    <%# Yield %>
-    <%= yield %>
+    <div class='container-fluid'>
+      <%# navigation %>
+      <%= render 'layouts/navbar' %>
+      <%# Yield %>
+      <%= yield %>
+      <footer>
+        <p>&copy; Instarails 2017<p>
+      </footer>
+    </div>
   </body>
 </html>

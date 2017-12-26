@@ -1,7 +1,84 @@
-<header>
-  <h1 class="text-center">Feed</h1>
-</header>
-
-<div class="jumbotron text-center">
-  <%= render @photo_feed %>
+<div class='feed-content'>
+  <div class='row'>
+    <div class='col-md-4'>
+      <%# Left column - Profile %>
+      <div class='feed-profile'>
+        <div class='feed-profile-header'></div>
+        <div class='feed-profile-body'>
+          <%= link_to @profile do %>
+            <%= image_tag @profile.avatar.url, class: "avatar-icon" %>
+          <% end %>
+          <p class='name'><%= @profile.name %></p>
+          <p class='username'><%= @profile.username%></p>
+          <div class="d-flex justify-content-around">
+            <a href="/photos" class="feed-count">
+              <%= 'Photo'.pluralize(@profile.user.photos.count) %>
+              <span class='number'><%= @profile.user.photos.count %></span>
+            </a>
+            <a href="/followers" class="feed-count">
+              <%= 'Follower'.pluralize(@profile.user.followers.count) %>
+              <span class='number'><%= @profile.user.followers.count %></span>
+            </a>
+            <a href="/following" class="feed-count">
+              <%= 'Following'.pluralize(@profile.user.following.count, plural: 'Following') %>
+              <span class='number'><%= @profile.user.following.count %></span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <%# Left column following feed %>
+      <div class='feed-follow'>
+        <h6><strong>Who to follow</strong></h6>
+        <% @profiles.each do |profile| %>
+            <div class='row row-feed'>
+              <div class='col-3'>
+                <% if profile.avatar %>
+                  <%= image_tag profile.avatar.url, class: "avatar-icon" %>
+                <% end %>
+              </div>
+              <div class='col-9'>
+                <%= link_to profile.user do %>
+                  <p class='name'><%= profile.name %> <span class='username'><%= profile.username%></span></p>
+                <% end %>
+                <%= form_with(model: profile.user, method: :patch) do |f| %>
+                  <%= f.hidden_field :toggle_follow, value: true %>
+                  <%= f.button profile.user.followed_by?(current_user) ? 'Unfollow' : 'Follow',
+                  class: 'btn btn-edit btn-feed' %>
+                <% end %>
+              </div>
+            </div>    
+        <% end %>
+      </div> 
+    </div>
+    <%# Right column Tweets %>
+    <div class='col-md-8'>
+      <div class='col-feed'>
+        <div class='row'>
+        <div class='col-12 tweet-feed d-flex justify-content-between'>
+          <%= image_tag @profile.avatar.url, class: 'feed-avatar-icon' %>
+          <textarea></textarea>
+        </div>
+        </div>
+  
+        <%# Photo Feeds %>
+        <% @photos.each do |photo| %>
+          <div class="row feed-entry">
+            <div class="col-1">
+              <%= link_to photo.user do %>
+                <%= image_tag photo.user.profile.avatar.url, class: 'avatar-icon' %>
+              <% end %>
+            </div>
+            <div class='col-11'>
+              <p><span class='name'><%= photo.user.profile.name %></span>
+                <span class='username'><%= photo.user.profile.username %> -</span>
+                <%= time_ago_in_words(photo.created_at) %> ago
+              </p>
+              <p><%= photo.description %></p>
+              <%= image_tag photo.image.url, class: 'feed-image' %>
+            </div>
+          </div>
+        <% end %>
+      </div> <%# Close col-feed %>
+    </div>
+  </div>
 </div>

@@ -11,22 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image, id: :photo_image %>
-  </div>
+      <div class='file-box'>
+      <%= form.file_field :image, id: :photo_image, class: 'file-field' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :photo_description %>
-  </div>
+      <%= form.text_area :description, id: :photo_description, placeholder: 'Description', class: 'input-field' %>
+      <%= form.text_field :location, id: :photo_location, placeholder: 'Location', class: 'input-field' %>
 
-  <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location, id: :photo_location %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+      <%= form.submit class: "btn btn-primary btn-larger mt-2" %>
 <% end %>
