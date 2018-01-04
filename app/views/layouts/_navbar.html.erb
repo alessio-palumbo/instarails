@@ -2,10 +2,10 @@
   <div class="top-bar">
     <nav class="top-nav">
       <ul>
-        <li><a href="/feed"><i class="fa fa-home"></i> Home</a></li>
-        <li><a href="#"><i class="fa fa-bolt"></i> Moments</a></li>
-        <li><a href="#"><i class="fa fa-bell-o"></i> Notifications</a></li>
-        <li><a href="#"><i class="fa fa-envelope-o"></i> Messages</a></li>
+        <li><a href="/feed"><i class="fa fa-home"></i><span class='nav-title'> Home</span></a></li>
+        <li><a href="#"><i class="fa fa-bolt"></i><span class='nav-title'> Moments</span></a></li>
+        <li><a href="#"><i class="fa fa-bell-o"></i><span class='nav-title'> Notifications</span></a></li>
+        <li><a href="#"><i class="fa fa-envelope-o"></i><span class='nav-title'> Messages</span></a></li>
       </ul> 
     </nav>
     <span class="icon"></span>
@@ -38,7 +38,7 @@
     </div>
   </div>
   <%# header and avatar %>
-  <% if @profile && !current_page?(feed_path) %>
+  <% if @profile && !current_page?(feed_path) && !current_page?(root_path) %>
     <header class="header">
       <% if @profile.avatar %>
         <%= image_tag @profile.avatar.url, class: "avatar" %>
@@ -47,4 +47,4 @@
       <% end %>
     </header>
   <% end %>
-<% end %>
+<% end %> 

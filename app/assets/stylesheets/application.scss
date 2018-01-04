@@ -24,6 +24,9 @@ body {
   overflow-x: hidden;
   padding-bottom: 100px;
 }
+ul {
+  list-style: none;
+}
 a {
   color: black;
 }
@@ -104,4 +107,8 @@ footer {
     font-size: 0.6em;
     font-weight: bold;
   }
+}
+
+.devise-errors-list {
+  list-style: none;
 }

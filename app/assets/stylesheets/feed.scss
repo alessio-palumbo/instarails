@@ -1,7 +1,7 @@
 .feed-content {
   background: #e6ecf0;
   height: 100%;
-  padding: 10px 170px;
+  padding: 15px;
 
   .feed-profile {
     font-size: 0.7em;
@@ -108,10 +108,15 @@
       font-size: 0.7em;
       background: white;
       padding-top: 12px;
+      p {
+        padding-left: 20px;
+      }
       .avatar-icon {
         width: 50px;
+        height: 50px;
         border-radius: 50%;
         margin-right: 10px;
+        margin-bottom: 10px;
       }
       .name {
         font-weight: bold;
@@ -126,5 +131,11 @@
     .feed-entry:hover {
       background: #f5f8fa;
     }
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .feed-content {
+    padding: 10px 170px;
   }
 }
