@@ -1,7 +1,7 @@
 <div class="container-fluid">
 <%# banner %>
   <div class="row banner">
-    <div class="col-3"></div>
+    <div class="col"></div>
     <div class="col-6">
       <div class="d-flex justify-content-around">
         <a href="/photos" class="profile-count text-center">
@@ -15,7 +15,7 @@
         </a>
       </div>
     </div>
-    <div class="col-3 button">
+    <div class="col button">
       <%# Edit or follow button %>
       <% if @profile.user == current_user %>
         <%= link_to 'Edit profile', edit_profile_path(@profile), class: 'btn btn-edit' %> 
